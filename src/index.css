@@ -12,3 +12,13 @@ body {
   margin: 0;
   background: #020617;
 }
+
+html[data-theme="light"] body {
+  background: #fafaf9;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] body {
+  background: #020617;
+  color-scheme: dark;
+}

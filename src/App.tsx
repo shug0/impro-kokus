@@ -25,47 +25,80 @@ function App() {
   return (
     <div
       className={`
-        h-full
-        px-8 py-16
-        text-center
-        flex flex-col items-center
-        bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black
+        min-h-screen
+        px-5 py-8 sm:px-8 sm:py-12
+        text-center text-slate-100
+        flex flex-col items-center justify-center
+        bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
+        from-slate-700 via-slate-950 to-black
     `}
     >
-      <header className="mb-auto">
-        <h1 className="text-7xl font-light mb-4 text-accent-content">Kokus</h1>
-        <h2 className="text-sm">Outil pour improvisateur audacieux</h2>
+      <header className="mb-10 max-w-xl">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-primary">
+          Kokus
+        </p>
+        <h1 className="mb-4 text-4xl font-light leading-tight text-white sm:text-6xl">
+          Générateur de personnages pour impros audacieuses
+        </h1>
+        <p className="text-base leading-7 text-slate-300 sm:text-lg">
+          Incarne un personnage inattendu, tire une contrainte, puis lance la
+          scène.
+        </p>
       </header>
-      <section className="flex flex-col items-center">
-        <h2 className="text mb-8 font-light">Pourquoi pas un.e ..</h2>
-        <div className="mb-8 flex flex-col gap-2">
-          <div className="text-accent-content text-3xl font-semibold">
-            {randomJob}
+      <main className="w-full max-w-md">
+        <section className="rounded-[2rem] border border-white/10 bg-white/10 p-6 shadow-2xl shadow-black/30 backdrop-blur sm:p-8">
+          <p className="mb-6 text-sm font-semibold uppercase tracking-[0.22em] text-slate-400">
+            Ton personnage
+          </p>
+          <div className="space-y-5 text-left">
+            <div>
+              <p className="mb-1 text-xs uppercase tracking-[0.18em] text-slate-500">
+                Métier
+              </p>
+              <p className="text-3xl font-semibold leading-tight text-white">
+                Un·e {randomJob}
+              </p>
+            </div>
+            <div>
+              <p className="mb-1 text-xs uppercase tracking-[0.18em] text-slate-500">
+                Animal intérieur
+              </p>
+              <p className="text-2xl font-semibold leading-tight text-primary">
+                ascendant {randomAnimal}
+              </p>
+            </div>
+            <div>
+              <p className="mb-1 text-xs uppercase tracking-[0.18em] text-slate-500">
+                Émotion dominante
+              </p>
+              <p className="text-2xl font-semibold leading-tight text-white">
+                animé·e par {randomEmotion}
+              </p>
+            </div>
+            <div>
+              <p className="mb-1 text-xs uppercase tracking-[0.18em] text-slate-500">
+                Couleur
+              </p>
+              <p className="flex items-center text-2xl font-semibold leading-tight text-white">
+                <span
+                  className="mr-3 h-7 w-7 shrink-0 rounded-full border border-white/30"
+                  style={{ backgroundColor: randomColor.value }}
+                />
+                énergie {randomColor.name}
+              </p>
+            </div>
           </div>
-          <div>ascendant..</div>
-          <div className="text-accent-content text-3xl font-semibold">
-            {randomAnimal}
-          </div>
-          <div>avec..</div>
-          <div className="text-accent-content text-3xl font-semibold">
-            {randomEmotion}
-          </div>
-          <div>coloré.e..</div>
-          <div className="text-accent-content text-3xl font-semibold flex items-center justify-center">
-            <div
-              className="h-6 w-6 rounded-full mr-3"
-              style={{ backgroundColor: randomColor.value }}
-            />
-            {randomColor.name}
-          </div>
-        </div>
-      </section>
-      <button
-        className="btn btn-primary rounded-full mt-auto"
-        onClick={handleGetNewOne}
-      >
-        Un.e autre !
-      </button>
+        </section>
+        <button
+          className="btn btn-primary mt-6 w-full rounded-full text-sm font-semibold normal-case tracking-wide"
+          onClick={handleGetNewOne}
+        >
+          Générer une nouvelle idée
+        </button>
+        <p className="mt-5 text-sm leading-6 text-slate-400">
+          Utilise ce prompt comme point de départ, pas comme règle stricte.
+        </p>
+      </main>
     </div>
   );
 }

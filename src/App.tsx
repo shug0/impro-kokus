@@ -55,9 +55,10 @@ function App() {
     ? "border-white/10 bg-white/[0.06] shadow-black/30"
     : "border-slate-200 bg-white shadow-slate-200";
   const labelTheme = isDark ? "text-slate-500" : "text-slate-400";
-  const mutedTheme = isDark ? "text-slate-300" : "text-slate-600";
-  const resultTheme = isDark ? "text-white" : "text-slate-950";
-  const accentTheme = isDark ? "text-violet-300" : "text-violet-700";
+  const promptTheme = isDark ? "text-slate-300" : "text-slate-600";
+  const highlightTheme = isDark
+    ? "text-white decoration-violet-400/60"
+    : "text-slate-950 decoration-violet-500/50";
   const subtleButtonTheme = isDark
     ? "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10"
     : "border-slate-200 bg-white text-slate-700 hover:bg-slate-100";
@@ -94,33 +95,39 @@ function App() {
           >
             Résultat
           </p>
-          <div className="space-y-6">
-            <div>
-              <p
-                className={`mb-2 text-xs uppercase tracking-[0.18em] ${labelTheme}`}
-              >
-                Métier
-              </p>
-              <h1
-                className={`text-5xl font-semibold leading-none tracking-tight sm:text-7xl ${resultTheme}`}
-              >
-                Un·e {randomJob}
-              </h1>
-            </div>
-            <div
-              className={`space-y-3 text-3xl font-semibold leading-tight sm:text-4xl ${mutedTheme}`}
+          <p
+            className={`text-4xl font-semibold leading-tight tracking-tight sm:text-6xl ${promptTheme}`}
+          >
+            Un·e{" "}
+            <span
+              className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
             >
-              <p>ascendant {randomAnimal}</p>
-              <p>animé·e par {randomEmotion}</p>
-              <p className={`flex items-center ${accentTheme}`}>
-                <span
-                  className="mr-3 h-7 w-7 shrink-0 rounded-full border border-current"
-                  style={{ backgroundColor: randomColor.value }}
-                />
-                énergie {randomColor.name}
-              </p>
-            </div>
-          </div>
+              {randomJob}
+            </span>{" "}
+            ascendant{" "}
+            <span
+              className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
+            >
+              {randomAnimal}
+            </span>
+            , traversé·e par{" "}
+            <span
+              className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
+            >
+              {randomEmotion}
+            </span>
+            , dans une énergie{" "}
+            <span
+              className={`inline-flex items-center font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
+            >
+              <span
+                className="mr-2 h-6 w-6 shrink-0 rounded-full border border-current"
+                style={{ backgroundColor: randomColor.value }}
+              />
+              {randomColor.name}
+            </span>
+            .
+          </p>
         </section>
         <button
           className="mt-6 rounded-full bg-violet-600 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-400/40"

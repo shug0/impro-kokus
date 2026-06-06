@@ -1,22 +1,374 @@
 [
-  { "name": "Bleu sarcelle", "value": "#1abc9c" },
-  { "name": "Emeraude", "value": "#2ecc71" },
-  { "name": "Turquoise", "value": "#16a085" },
-  { "name": "Vert pomme", "value": "#27ae60" },
-  { "name": "Bleu roi", "value": "#3498db" },
-  { "name": "Saphir", "value": "#2980b9" },
-  { "name": "Orange", "value": "#f1c40f" },
-  { "name": "Citron vert", "value": "#C0FF00" },
-  { "name": "Rose", "value": "#e91e63" },
-  { "name": "Fuchsia", "value": "#9b59b6" },
-  { "name": "Saumon", "value": "#ff6f61" },
-  { "name": "Bordeaux", "value": "#8e44ad" },
-  { "name": "Bleu poudré", "value": "#aec6cf" },
-  { "name": "Lavande", "value": "#d7bde2" },
-  { "name": "Gris perle", "value": "#bdc3c7" },
-  { "name": "Orchidée", "value": "#7d3c98" },
-  { "name": "Sable", "value": "#ecd9c6" },
-  { "name": "Blanc fumé", "value": "#f5f5f5" },
-  { "name": "Noir", "value": "#000" },
-  { "name": "Rouge", "value": "#FF0000" }
+  {
+    "name": "Abricot",
+    "value": "#fbceb1"
+  },
+  {
+    "name": "Acajou",
+    "value": "#88421d"
+  },
+  {
+    "name": "Aigue-marine",
+    "value": "#79f8f8"
+  },
+  {
+    "name": "Amarante",
+    "value": "#91283b"
+  },
+  {
+    "name": "Ambre",
+    "value": "#f0c300"
+  },
+  {
+    "name": "Anthracite",
+    "value": "#303030"
+  },
+  {
+    "name": "Argent",
+    "value": "#c0c0c0"
+  },
+  {
+    "name": "Aubergine",
+    "value": "#370028"
+  },
+  {
+    "name": "Azur",
+    "value": "#007fff"
+  },
+  {
+    "name": "Beige",
+    "value": "#c8ad7f"
+  },
+  {
+    "name": "Blanc cassé",
+    "value": "#fefee2"
+  },
+  {
+    "name": "Blanc fumé",
+    "value": "#f5f5f5"
+  },
+  {
+    "name": "Bleu acier",
+    "value": "#3a8eba"
+  },
+  {
+    "name": "Bleu canard",
+    "value": "#048b9a"
+  },
+  {
+    "name": "Bleu ciel",
+    "value": "#77b5fe"
+  },
+  {
+    "name": "Bleu nuit",
+    "value": "#0f056b"
+  },
+  {
+    "name": "Bleu paon",
+    "value": "#067790"
+  },
+  {
+    "name": "Bleu pétrole",
+    "value": "#1d4851"
+  },
+  {
+    "name": "Bleu poudré",
+    "value": "#aec6cf"
+  },
+  {
+    "name": "Bleu roi",
+    "value": "#3498db"
+  },
+  {
+    "name": "Bleu sarcelle",
+    "value": "#1abc9c"
+  },
+  {
+    "name": "Bordeaux",
+    "value": "#6d071a"
+  },
+  {
+    "name": "Brique",
+    "value": "#842e1b"
+  },
+  {
+    "name": "Bronze",
+    "value": "#614e1a"
+  },
+  {
+    "name": "Brun",
+    "value": "#5b3c11"
+  },
+  {
+    "name": "Café",
+    "value": "#462e01"
+  },
+  {
+    "name": "Caramel",
+    "value": "#7e3300"
+  },
+  {
+    "name": "Carmin",
+    "value": "#960018"
+  },
+  {
+    "name": "Cerise",
+    "value": "#de3163"
+  },
+  {
+    "name": "Champagne",
+    "value": "#f7e7ce"
+  },
+  {
+    "name": "Charbon",
+    "value": "#121212"
+  },
+  {
+    "name": "Chartreuse",
+    "value": "#c0ff00"
+  },
+  {
+    "name": "Chocolat",
+    "value": "#5a3a22"
+  },
+  {
+    "name": "Citron",
+    "value": "#f7ff3c"
+  },
+  {
+    "name": "Citron vert",
+    "value": "#c0ff00"
+  },
+  {
+    "name": "Coquelicot",
+    "value": "#c60800"
+  },
+  {
+    "name": "Corail",
+    "value": "#e73e01"
+  },
+  {
+    "name": "Crème",
+    "value": "#fdf1b8"
+  },
+  {
+    "name": "Cuivre",
+    "value": "#b36700"
+  },
+  {
+    "name": "Ébène",
+    "value": "#130e0a"
+  },
+  {
+    "name": "Émeraude",
+    "value": "#2ecc71"
+  },
+  {
+    "name": "Étain",
+    "value": "#9e9e9e"
+  },
+  {
+    "name": "Fauve",
+    "value": "#ad4f09"
+  },
+  {
+    "name": "Framboise",
+    "value": "#c72c48"
+  },
+  {
+    "name": "Fuchsia",
+    "value": "#9b59b6"
+  },
+  {
+    "name": "Garance",
+    "value": "#ee1010"
+  },
+  {
+    "name": "Glacier",
+    "value": "#dff6ff"
+  },
+  {
+    "name": "Graphite",
+    "value": "#383838"
+  },
+  {
+    "name": "Grenat",
+    "value": "#6e0b14"
+  },
+  {
+    "name": "Gris perle",
+    "value": "#bdc3c7"
+  },
+  {
+    "name": "Indigo",
+    "value": "#4b0082"
+  },
+  {
+    "name": "Ivoire",
+    "value": "#ffffd4"
+  },
+  {
+    "name": "Jaune moutarde",
+    "value": "#c7a000"
+  },
+  {
+    "name": "Kaki",
+    "value": "#798933"
+  },
+  {
+    "name": "Lavande",
+    "value": "#d7bde2"
+  },
+  {
+    "name": "Lie-de-vin",
+    "value": "#ac1e44"
+  },
+  {
+    "name": "Lilas",
+    "value": "#b666d2"
+  },
+  {
+    "name": "Magenta",
+    "value": "#ff00ff"
+  },
+  {
+    "name": "Mandarine",
+    "value": "#fe96a0"
+  },
+  {
+    "name": "Menthe",
+    "value": "#16b84e"
+  },
+  {
+    "name": "Miel",
+    "value": "#dcb253"
+  },
+  {
+    "name": "Noir",
+    "value": "#000000"
+  },
+  {
+    "name": "Noisette",
+    "value": "#955628"
+  },
+  {
+    "name": "Ocre",
+    "value": "#dd985c"
+  },
+  {
+    "name": "Olive",
+    "value": "#708d23"
+  },
+  {
+    "name": "Or",
+    "value": "#ffd700"
+  },
+  {
+    "name": "Orange",
+    "value": "#f1c40f"
+  },
+  {
+    "name": "Orchidée",
+    "value": "#da70d6"
+  },
+  {
+    "name": "Outremer",
+    "value": "#1b019b"
+  },
+  {
+    "name": "Parme",
+    "value": "#cfa0e9"
+  },
+  {
+    "name": "Pêche",
+    "value": "#fdbfb7"
+  },
+  {
+    "name": "Prune",
+    "value": "#811453"
+  },
+  {
+    "name": "Rose",
+    "value": "#e91e63"
+  },
+  {
+    "name": "Rose poudré",
+    "value": "#f4c2c2"
+  },
+  {
+    "name": "Rouge",
+    "value": "#ff0000"
+  },
+  {
+    "name": "Rouille",
+    "value": "#985717"
+  },
+  {
+    "name": "Rubis",
+    "value": "#e0115f"
+  },
+  {
+    "name": "Sable",
+    "value": "#ecd9c6"
+  },
+  {
+    "name": "Safran",
+    "value": "#f3d617"
+  },
+  {
+    "name": "Saphir",
+    "value": "#2980b9"
+  },
+  {
+    "name": "Sauge",
+    "value": "#689d71"
+  },
+  {
+    "name": "Saumon",
+    "value": "#ff6f61"
+  },
+  {
+    "name": "Sepia",
+    "value": "#ae8964"
+  },
+  {
+    "name": "Tabac",
+    "value": "#9f551e"
+  },
+  {
+    "name": "Taupe",
+    "value": "#463f32"
+  },
+  {
+    "name": "Terracotta",
+    "value": "#cc4e35"
+  },
+  {
+    "name": "Turquoise",
+    "value": "#16a085"
+  },
+  {
+    "name": "Vanille",
+    "value": "#e1ce9a"
+  },
+  {
+    "name": "Vert bouteille",
+    "value": "#096a09"
+  },
+  {
+    "name": "Vert d'eau",
+    "value": "#b0f2b6"
+  },
+  {
+    "name": "Vert forêt",
+    "value": "#228b22"
+  },
+  {
+    "name": "Vert pomme",
+    "value": "#27ae60"
+  },
+  {
+    "name": "Violet",
+    "value": "#660099"
+  }
 ]

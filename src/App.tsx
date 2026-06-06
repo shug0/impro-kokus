@@ -66,20 +66,21 @@ function App() {
   return (
     <div
       className={`
-        min-h-screen
-        px-5 py-6 sm:px-8 sm:py-10
+        h-dvh overflow-hidden
+        relative
+        px-5 py-5 sm:px-8 sm:py-10
         flex flex-col items-center
         transition-colors duration-300
         ${appTheme}
     `}
     >
       <header
-        className={`mb-8 flex w-full max-w-lg items-center justify-between text-xs font-semibold uppercase tracking-[0.26em] ${headerTheme}`}
+        className={`absolute left-5 right-5 top-5 mx-auto flex max-w-lg items-center justify-between text-xs font-semibold uppercase tracking-[0.26em] sm:left-8 sm:right-8 sm:top-10 ${headerTheme}`}
       >
         <p className="text-violet-500">Kokus</p>
         <button
           aria-label={`Passer en thème ${isDark ? "clair" : "sombre"}`}
-          className={`rounded-full border px-4 py-2 tracking-normal transition ${subtleButtonTheme}`}
+          className={`rounded-full border px-3 py-1.5 tracking-normal transition sm:px-4 sm:py-2 ${subtleButtonTheme}`}
           onClick={toggleTheme}
           type="button"
         >
@@ -88,15 +89,15 @@ function App() {
       </header>
       <main className="flex w-full max-w-lg flex-1 flex-col justify-center">
         <section
-          className={`rounded-[2rem] border p-6 shadow-2xl transition-colors duration-300 sm:p-8 ${cardTheme}`}
+          className={`flex min-h-[17rem] flex-col justify-center rounded-[1.5rem] border p-5 shadow-2xl transition-colors duration-300 sm:min-h-0 sm:rounded-[2rem] sm:p-8 ${cardTheme}`}
         >
           <p
-            className={`mb-5 text-sm font-semibold uppercase tracking-[0.22em] ${labelTheme}`}
+            className={`mb-3 text-xs font-semibold uppercase tracking-[0.22em] sm:mb-5 sm:text-sm ${labelTheme}`}
           >
             Résultat
           </p>
           <p
-            className={`text-4xl font-semibold leading-tight tracking-tight sm:text-6xl ${promptTheme}`}
+            className={`break-words text-[clamp(1.35rem,6.5vw,1.85rem)] font-semibold leading-[1.12] tracking-tight sm:text-6xl sm:leading-tight ${promptTheme}`}
           >
             Un·e{" "}
             <span
@@ -121,7 +122,7 @@ function App() {
               className={`inline-flex items-center font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
             >
               <span
-                className="mr-2 h-6 w-6 shrink-0 rounded-full border border-current"
+                className="mr-2 h-5 w-5 shrink-0 rounded-full border border-current sm:h-6 sm:w-6"
                 style={{ backgroundColor: randomColor.value }}
               />
               {randomColor.name}
@@ -130,7 +131,7 @@ function App() {
           </p>
         </section>
         <button
-          className="mt-6 rounded-full bg-violet-600 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-400/40"
+          className="mt-4 rounded-full bg-violet-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-400/40 sm:mt-6 sm:py-4"
           onClick={handleGetNewOne}
           type="button"
         >

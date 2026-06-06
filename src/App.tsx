@@ -66,7 +66,7 @@ function App() {
   return (
     <div
       className={`
-        h-dvh overflow-hidden
+        h-dvh w-full overflow-hidden
         relative
         px-5 py-5 sm:px-8 sm:py-10
         flex flex-col items-center

@@ -122,7 +122,7 @@ function App() {
 
         {/* Result text — vertically centered in remaining space */}
         <div className="flex flex-1 flex-col justify-center">
-          <section className="flex flex-col">
+          <section className="flex flex-col px-3 sm:px-5">
             <p className={`mb-4 text-xs font-semibold uppercase tracking-[0.22em] sm:mb-6 sm:text-sm ${labelTheme}`}>
               Résultat
             </p>

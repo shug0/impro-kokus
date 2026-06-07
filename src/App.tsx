@@ -51,9 +51,6 @@ function App() {
     ? "bg-slate-950 text-white"
     : "bg-stone-50 text-slate-950";
   const headerTheme = isDark ? "text-slate-400" : "text-slate-500";
-  const cardTheme = isDark
-    ? "border-white/10 bg-white/[0.06] shadow-black/30"
-    : "border-slate-200 bg-white shadow-slate-200";
   const labelTheme = isDark ? "text-slate-500" : "text-slate-400";
   const promptTheme = isDark ? "text-slate-300" : "text-slate-600";
   const highlightTheme = isDark
@@ -89,9 +86,7 @@ function App() {
       </header>
       <main className="flex w-full max-w-lg flex-1 flex-col">
         <div className="flex flex-1 flex-col justify-center">
-          <section
-            className={`flex flex-col rounded-[1.5rem] border p-6 shadow-2xl transition-colors duration-300 sm:rounded-[2rem] sm:p-10 ${cardTheme}`}
-          >
+          <section className="flex flex-col">
             <p
               className={`mb-4 text-xs font-semibold uppercase tracking-[0.22em] sm:mb-6 sm:text-sm ${labelTheme}`}
             >

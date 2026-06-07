@@ -14,6 +14,28 @@ const getInitialTheme = (): Theme => {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
 
+const DEFAULT_SHOW: ShowState = { job: true, animal: true, emotion: true, color: false };
+
+const getInitialShow = (): ShowState => {
+  try {
+    const stored = window.localStorage.getItem("kokus-show");
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (
+        typeof parsed.job === "boolean" &&
+        typeof parsed.animal === "boolean" &&
+        typeof parsed.emotion === "boolean" &&
+        typeof parsed.color === "boolean"
+      ) {
+        return parsed;
+      }
+    }
+  } catch {
+    // ignore malformed data
+  }
+  return DEFAULT_SHOW;
+};
+
 const TOGGLES: { key: keyof ShowState; label: string }[] = [
   { key: "job", label: "Métier" },
   { key: "animal", label: "Animal" },
@@ -27,12 +49,7 @@ function App() {
   const [randomEmotion, getRandomEmotion] = useRandom(emotions);
   const [randomColor, getRandomColor] = useRandom(colors);
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
-  const [show, setShow] = useState<ShowState>({
-    job: true,
-    animal: true,
-    emotion: true,
-    color: false,
-  });
+  const [show, setShow] = useState<ShowState>(getInitialShow);
   const isDark = theme === "dark";
 
   const handleGetNewOne = () => {
@@ -53,6 +70,10 @@ function App() {
     document.documentElement.dataset.theme = theme;
     window.localStorage.setItem("kokus-theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    window.localStorage.setItem("kokus-show", JSON.stringify(show));
+  }, [show]);
 
   const hasPara1 = show.job || show.animal;
   const hasPara2 = show.emotion || show.color;

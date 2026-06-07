@@ -80,14 +80,14 @@ function App() {
       className={`
         h-dvh w-full overflow-hidden
         relative
-        px-5 py-5 sm:px-8 sm:py-10
+        px-8 py-5 sm:px-14 sm:py-10
         flex flex-col items-center
         transition-colors duration-300
         ${appTheme}
     `}
     >
       <header
-        className={`absolute left-5 right-5 top-5 mx-auto flex max-w-lg items-center justify-between text-xs font-semibold uppercase tracking-[0.26em] sm:left-8 sm:right-8 sm:top-10 ${headerTheme}`}
+        className={`absolute left-8 right-8 top-5 mx-auto flex max-w-lg items-center justify-between text-xs font-semibold uppercase tracking-[0.26em] sm:left-14 sm:right-14 sm:top-10 ${headerTheme}`}
       >
         <p className="text-violet-500">Kokus</p>
         <button

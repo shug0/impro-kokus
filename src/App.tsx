@@ -102,7 +102,11 @@ function App() {
 
       <main className="flex w-full max-w-lg flex-1 flex-col">
         {/* Feature toggles — positioned below the absolute header */}
-        <div className="mt-10 flex gap-2 sm:mt-12">
+        <div className="mt-14 sm:mt-16">
+          <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.22em] ${labelTheme}`}>
+            Inclure
+          </p>
+          <div className="flex gap-2">
           {TOGGLES.map(({ key, label }) => (
             <button
               key={key}
@@ -113,6 +117,7 @@ function App() {
               {label}
             </button>
           ))}
+          </div>
         </div>
 
         {/* Result text — vertically centered in remaining space */}
@@ -171,7 +176,7 @@ function App() {
         </div>
 
         <button
-          className="rounded-full bg-violet-600 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-400/40 sm:py-5"
+          className="mb-3 rounded-full bg-violet-600 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-400/40 sm:mb-4 sm:py-5"
           onClick={handleGetNewOne}
           type="button"
         >

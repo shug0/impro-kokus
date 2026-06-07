@@ -6,18 +6,20 @@ import emotions from "./data/emotions.json";
 import colors from "./data/colors.json";
 
 type Theme = "light" | "dark";
+type ShowState = { job: boolean; animal: boolean; emotion: boolean; color: boolean };
 
 const getInitialTheme = (): Theme => {
   const storedTheme = window.localStorage.getItem("kokus-theme");
-
-  if (storedTheme === "light" || storedTheme === "dark") {
-    return storedTheme;
-  }
-
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  if (storedTheme === "light" || storedTheme === "dark") return storedTheme;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
+
+const TOGGLES: { key: keyof ShowState; label: string }[] = [
+  { key: "job", label: "Métier" },
+  { key: "animal", label: "Animal" },
+  { key: "emotion", label: "Émotion" },
+  { key: "color", label: "Couleur" },
+];
 
 function App() {
   const [randomAnimal, getRandomAnimal] = useRandom(animals);
@@ -25,6 +27,12 @@ function App() {
   const [randomEmotion, getRandomEmotion] = useRandom(emotions);
   const [randomColor, getRandomColor] = useRandom(colors);
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [show, setShow] = useState<ShowState>({
+    job: true,
+    animal: true,
+    emotion: true,
+    color: false,
+  });
   const isDark = theme === "dark";
 
   const handleGetNewOne = () => {
@@ -34,9 +42,8 @@ function App() {
     getRandomColor();
   };
 
-  const toggleTheme = () => {
-    setTheme(isDark ? "light" : "dark");
-  };
+  const toggleTheme = () => setTheme(isDark ? "light" : "dark");
+  const toggleShow = (k: keyof ShowState) => setShow((p) => ({ ...p, [k]: !p[k] }));
 
   useEffect(() => {
     handleGetNewOne();
@@ -47,9 +54,10 @@ function App() {
     window.localStorage.setItem("kokus-theme", theme);
   }, [theme]);
 
-  const appTheme = isDark
-    ? "bg-slate-950 text-white"
-    : "bg-stone-50 text-slate-950";
+  const hasPara1 = show.job || show.animal;
+  const hasPara2 = show.emotion || show.color;
+
+  const appTheme = isDark ? "bg-slate-950 text-white" : "bg-stone-50 text-slate-950";
   const headerTheme = isDark ? "text-slate-400" : "text-slate-500";
   const labelTheme = isDark ? "text-slate-500" : "text-slate-400";
   const promptTheme = isDark ? "text-slate-300" : "text-slate-600";
@@ -59,6 +67,13 @@ function App() {
   const subtleButtonTheme = isDark
     ? "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10"
     : "border-slate-200 bg-white text-slate-700 hover:bg-slate-100";
+  const activeToggleTheme = "border-violet-600 bg-violet-600 text-white";
+  const inactiveToggleTheme = isDark
+    ? "border-white/10 bg-transparent text-slate-500"
+    : "border-slate-200 bg-transparent text-slate-400";
+
+  const textClass = `break-words text-[clamp(1.35rem,6.5vw,1.85rem)] font-semibold leading-[1.45] tracking-tight sm:text-6xl sm:leading-snug ${promptTheme}`;
+  const spanClass = `font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`;
 
   return (
     <div
@@ -84,49 +99,77 @@ function App() {
           {isDark ? "Clair" : "Sombre"}
         </button>
       </header>
+
       <main className="flex w-full max-w-lg flex-1 flex-col">
+        {/* Feature toggles — positioned below the absolute header */}
+        <div className="mt-10 flex gap-2 sm:mt-12">
+          {TOGGLES.map(({ key, label }) => (
+            <button
+              key={key}
+              className={`rounded-full border px-3 py-1.5 text-xs font-semibold tracking-normal transition sm:px-4 sm:py-2 ${show[key] ? activeToggleTheme : inactiveToggleTheme}`}
+              onClick={() => toggleShow(key)}
+              type="button"
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+
+        {/* Result text — vertically centered in remaining space */}
         <div className="flex flex-1 flex-col justify-center">
           <section className="flex flex-col">
-            <p
-              className={`mb-4 text-xs font-semibold uppercase tracking-[0.22em] sm:mb-6 sm:text-sm ${labelTheme}`}
-            >
+            <p className={`mb-4 text-xs font-semibold uppercase tracking-[0.22em] sm:mb-6 sm:text-sm ${labelTheme}`}>
               Résultat
             </p>
-            <p
-              className={`break-words text-[clamp(1.35rem,6.5vw,1.85rem)] font-semibold leading-[1.45] tracking-tight sm:text-6xl sm:leading-snug ${promptTheme}`}
-            >
-              Un·e{" "}
-              <span
-                className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
-              >
-                {randomJob}
-              </span>{" "}
-              ascendant{" "}
-              <span
-                className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
-              >
-                {randomAnimal}
-              </span>
-              , traversé·e par{" "}
-              <span
-                className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
-              >
-                {randomEmotion}
-              </span>
-              , dans une énergie{" "}
-              <span
-                className={`inline-flex items-center font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
-              >
-                <span
-                  className="mr-2 h-5 w-5 shrink-0 rounded-full border border-current sm:h-6 sm:w-6"
-                  style={{ backgroundColor: randomColor.value }}
-                />
-                {randomColor.name}
-              </span>
-              .
-            </p>
+
+            {/* Paragraph 1 : métier + animal */}
+            {hasPara1 && (
+              <p className={textClass}>
+                {show.job && (
+                  <>Un·e <span className={spanClass}>{randomJob}</span></>
+                )}
+                {show.animal && (
+                  <>{" "}{show.job ? "ascendant " : "Ascendant "}
+                  <span className={spanClass}>{randomAnimal}</span></>
+                )}
+                {!hasPara2 && "."}
+              </p>
+            )}
+
+            {/* Paragraph 2 : émotion + couleur */}
+            {hasPara2 && (
+              <p className={`${hasPara1 ? "mt-3 sm:mt-5" : ""} ${textClass}`}>
+                {show.emotion && (
+                  <>{!hasPara1 ? "Traversé·e par " : "traversé·e par "}
+                  <span className={spanClass}>{randomEmotion}</span></>
+                )}
+                {show.color && (
+                  <>
+                    {show.emotion
+                      ? ", dans une énergie "
+                      : !hasPara1
+                      ? "Dans une énergie "
+                      : "dans une énergie "}
+                    <span className={`inline-flex items-center ${spanClass}`}>
+                      <span
+                        className="mr-2 h-5 w-5 shrink-0 rounded-full border border-current sm:h-6 sm:w-6"
+                        style={{ backgroundColor: randomColor.value }}
+                      />
+                      {randomColor.name}
+                    </span>
+                  </>
+                )}
+                .
+              </p>
+            )}
+
+            {/* Nothing selected */}
+            {!hasPara1 && !hasPara2 && (
+              <p className={`${textClass} opacity-25`}>—</p>
+            )}
           </section>
         </div>
+
         <button
           className="rounded-full bg-violet-600 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-400/40 sm:py-5"
           onClick={handleGetNewOne}

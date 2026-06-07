@@ -98,7 +98,7 @@ function App() {
               Résultat
             </p>
             <p
-              className={`break-words text-[clamp(1.4rem,6.5vw,1.9rem)] font-semibold leading-[1.45] tracking-tight sm:text-6xl sm:leading-snug ${promptTheme}`}
+              className={`break-words text-[clamp(1.35rem,6.5vw,1.85rem)] font-semibold leading-[1.45] tracking-tight sm:text-6xl sm:leading-snug ${promptTheme}`}
             >
               Un·e{" "}
               <span

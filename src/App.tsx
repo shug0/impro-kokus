@@ -87,51 +87,53 @@ function App() {
           {isDark ? "Clair" : "Sombre"}
         </button>
       </header>
-      <main className="flex w-full max-w-lg flex-1 flex-col justify-center">
-        <section
-          className={`flex min-h-[17rem] flex-col justify-center rounded-[1.5rem] border p-5 shadow-2xl transition-colors duration-300 sm:min-h-0 sm:rounded-[2rem] sm:p-8 ${cardTheme}`}
-        >
-          <p
-            className={`mb-3 text-xs font-semibold uppercase tracking-[0.22em] sm:mb-5 sm:text-sm ${labelTheme}`}
+      <main className="flex w-full max-w-lg flex-1 flex-col">
+        <div className="flex flex-1 flex-col justify-center">
+          <section
+            className={`flex flex-col rounded-[1.5rem] border p-6 shadow-2xl transition-colors duration-300 sm:rounded-[2rem] sm:p-10 ${cardTheme}`}
           >
-            Résultat
-          </p>
-          <p
-            className={`break-words text-[clamp(1.35rem,6.5vw,1.85rem)] font-semibold leading-[1.12] tracking-tight sm:text-6xl sm:leading-tight ${promptTheme}`}
-          >
-            Un·e{" "}
-            <span
-              className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
+            <p
+              className={`mb-4 text-xs font-semibold uppercase tracking-[0.22em] sm:mb-6 sm:text-sm ${labelTheme}`}
             >
-              {randomJob}
-            </span>{" "}
-            ascendant{" "}
-            <span
-              className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
+              Résultat
+            </p>
+            <p
+              className={`break-words text-[clamp(1.4rem,6.5vw,1.9rem)] font-semibold leading-[1.45] tracking-tight sm:text-6xl sm:leading-snug ${promptTheme}`}
             >
-              {randomAnimal}
-            </span>
-            , traversé·e par{" "}
-            <span
-              className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
-            >
-              {randomEmotion}
-            </span>
-            , dans une énergie{" "}
-            <span
-              className={`inline-flex items-center font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
-            >
+              Un·e{" "}
               <span
-                className="mr-2 h-5 w-5 shrink-0 rounded-full border border-current sm:h-6 sm:w-6"
-                style={{ backgroundColor: randomColor.value }}
-              />
-              {randomColor.name}
-            </span>
-            .
-          </p>
-        </section>
+                className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
+              >
+                {randomJob}
+              </span>{" "}
+              ascendant{" "}
+              <span
+                className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
+              >
+                {randomAnimal}
+              </span>
+              , traversé·e par{" "}
+              <span
+                className={`font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
+              >
+                {randomEmotion}
+              </span>
+              , dans une énergie{" "}
+              <span
+                className={`inline-flex items-center font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`}
+              >
+                <span
+                  className="mr-2 h-5 w-5 shrink-0 rounded-full border border-current sm:h-6 sm:w-6"
+                  style={{ backgroundColor: randomColor.value }}
+                />
+                {randomColor.name}
+              </span>
+              .
+            </p>
+          </section>
+        </div>
         <button
-          className="mt-4 rounded-full bg-violet-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-400/40 sm:mt-6 sm:py-4"
+          className="rounded-full bg-violet-600 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-400/40 sm:py-5"
           onClick={handleGetNewOne}
           type="button"
         >

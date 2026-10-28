@@ -1,0 +1,11 @@
+// Worker Cloudflare qui sert le build Vite (dist/), relié au dépôt par Workers Builds :
+// chaque push sur main construit (pnpm build) et publie (npx wrangler deploy).
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kokus",
+  "compatibility_date": "2026-10-28",
+  "assets": {
+    "directory": "./dist"
+  },
+  "routes": [{ "pattern": "kokus.orguin.com", "custom_domain": true }]
+}

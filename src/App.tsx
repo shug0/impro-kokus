@@ -93,7 +93,7 @@ function App() {
     ? "border-white/10 bg-transparent text-slate-500"
     : "border-slate-200 bg-transparent text-slate-400";
 
-  const textClass = `break-words text-[clamp(1.35rem,6.5vw,1.85rem)] font-semibold leading-[1.45] tracking-tight sm:text-6xl sm:leading-snug ${promptTheme}`;
+  const textClass = `wrap-break-word text-[clamp(1.35rem,6.5vw,1.85rem)] font-semibold leading-[1.45] tracking-tight sm:text-6xl sm:leading-snug ${promptTheme}`;
   const spanClass = `font-bold underline decoration-4 underline-offset-4 ${highlightTheme}`;
 
   return (
@@ -197,7 +197,7 @@ function App() {
         </div>
 
         <button
-          className="mb-3 rounded-full bg-violet-600 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-400/40 sm:mb-4 sm:py-5"
+          className="mb-3 rounded-full bg-violet-600 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500 focus:outline-hidden focus:ring-4 focus:ring-violet-400/40 sm:mb-4 sm:py-5"
           onClick={handleGetNewOne}
           type="button"
         >
